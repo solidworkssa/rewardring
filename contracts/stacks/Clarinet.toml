@@ -1,0 +1,12 @@
+[project]
+name = "rewardring"
+description = "Circular economy rewards system"
+authors = ["solidworkssa"]
+telemetry = false
+cache_dir = ".cache"
+
+[contracts.rewardring]
+path = "contracts/rewardring.clar"
+
+[repl.analysis]
+passes = ["check_checker"]
