@@ -1,22 +1,21 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+/// @title RewardRing Contract
+/// @notice Gamified loyalty reward system.
 contract RewardRing {
-    mapping(address => uint256) public data;
-    uint256 public counter;
 
-    event DataStored(address indexed user, uint256 value);
-
-    function store(uint256 value) external {
-        data[msg.sender] = value;
-        emit DataStored(msg.sender, value);
+    mapping(address => uint256) public points;
+    
+    function earn(uint256 _points) external {
+        // Only admin
+        points[msg.sender] += _points;
+    }
+    
+    function redeem(uint256 _points) external {
+        require(points[msg.sender] >= _points, "Insufficient points");
+        points[msg.sender] -= _points;
+        // Logic to give reward
     }
 
-    function retrieve(address user) external view returns (uint256) {
-        return data[user];
-    }
-
-    function incrementCounter() external {
-        counter++;
-    }
 }
