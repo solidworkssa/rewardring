@@ -2,8 +2,11 @@
 pragma solidity ^0.8.20;
 
 /// @title RewardRing Contract
+/// @author solidworkssa
 /// @notice Gamified loyalty reward system.
 contract RewardRing {
+    string public constant VERSION = "1.0.0";
+
 
     mapping(address => uint256) public points;
     
