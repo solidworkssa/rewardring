@@ -20,7 +20,7 @@
 
 (define-public (earn (amount uint))
     (begin
-        (map-set points tx-sender (+ (default-to u0 (map-get? points tx-sender)) amount))
+        (map-set points contract-caller (+ (default-to u0 (map-get? points contract-caller)) amount))
         (ok true)
     )
 )
